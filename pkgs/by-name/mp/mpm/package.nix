@@ -23,12 +23,19 @@
     # List not hardcoded in case other Linux/Darwin platforms become supported.
     platforms = lib.intersectLists mpm-unwrapped.meta.platforms lib.platforms.linux;
   };
-}).overrideAttrs # attributes which don't work as intended otherwise
-  {
-    doInstallCheck = true;
-    nativeInstallCheckInputs = [ versionCheckHook ];
 
-    # for nixpkgs-vet
-    strictDeps = true;
-    __structuredAttrs = true;
-  }
+  # NOTE: the attributes below don't work when passed as inputs to buildFHSEnv
+  # doInstallCheck = true;
+  # nativeInstallCheckInputs = [ versionCheckHook ];
+  # strictDeps = true;
+  # __structuredAttrs = true;
+})
+# NOTE: instead they can be merged here
+// {
+  doInstallCheck = true;
+  nativeInstallCheckInputs = [ versionCheckHook ];
+
+  # for nixpkgs-vet
+  strictDeps = true;
+  __structuredAttrs = true;
+}
