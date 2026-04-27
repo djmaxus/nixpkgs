@@ -28,7 +28,7 @@ stdenvNoCC.mkDerivation (finalAttrs: {
 
   installPhase = ''
     runHook preInstall
-    install -D "${finalAttrs.src}" "$out"/bin/mpm
+    install -D ${finalAttrs.src} "$out"/bin/mpm
     runHook postInstall
   '';
 

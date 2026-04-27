@@ -1614,7 +1614,7 @@ with pkgs;
     haskellPackages.generateOptparseApplicativeCompletions [ "cabal2nix" ] haskellPackages.cabal2nix
   );
 
-  stac-validator = with python3Packages; toPythonApplication stac-validator;
+  # stac-validator = with python3Packages; toPythonApplication stac-validator;
 
   stack2nix =
     with haskell.lib;
@@ -4177,7 +4177,7 @@ with pkgs;
     );
 
   # TODO(@NixOS/haskell): deprecate this alias?
-  microhs = targetPackages.haskell.packages.microhs.ghc or haskell.compiler.microhs;
+  # microhs = targetPackages.haskell.packages.microhs.ghc or haskell.compiler.microhs;
 
   alex = haskell.lib.compose.justStaticExecutables haskellPackages.alex;
 
